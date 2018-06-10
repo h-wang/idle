@@ -5,25 +5,23 @@
         pathname: null, url: null, escapeUrls: [], timerId: null, callback: null,
         init: function() {
             this.initPathname()
-            this.callback = w._idleCallback || this.redirect
-            this.url = w._idleRedirectUrl || null
-            this.debug = w._idleDebug || false
-            if (w._idleCallback) {
-                this.callback = w._idleCallback
-            } else {
+            // this.url = w._idleRedirectUrl || null
+            // this.debug = w._idleDebug || false
+            if (!this.callback) {
                 if (!this.url || this.url == this.pathname) {
                     this.log('redirect url undefined or is the same as current, abort') 
                     return;
                 }
                 this.callback = this.redirect
             }
-
-            this.escapeUrls = w._idleEscapeUrl || [];
+            // this.callback = this.callback || this.redirect
+            
+            // this.escapeUrls = w._idleEscapeUrl || [];
             if (this.escapeUrls.indexOf(this.pathname) > -1) {
                 this.log('idel timer is disabled for this page')
                 return;
             }
-            this.interval = w._idleInterval || this.interval
+            // this.interval = w._idleInterval || this.interval
             this.eventTypes.forEach(this.listen)
             this.tick()
         },
@@ -54,8 +52,17 @@
             this.log('pathname: '+this.pathname)
         },
         log: function(msg) {
-            if (i.debug) console.log(msg)
+            if (i.debug) w.console.log(msg)
         }
     }
+    w._idle = function() {
+        var args = (arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments));
+        if (!args[0]) return false;
+        if (['url', 'escape', 'interval', 'callback', 'debug'].indexOf(args[0]) > -1) {
+            i[args[0]] = args[1]
+        } else {
+            w.console.log('unsupported _idle parameter'+args[0])
+        }
+    };
     d.addEventListener('DOMContentLoaded', i.init.bind(i));
 })(window, document);

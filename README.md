@@ -22,15 +22,19 @@ To support idle.js in your application, you'll need to include a script tag in y
 You may specify some global variables to tweak the behaviors.
 ```js
 // set redirect url (relative) after idle timeout
-_idleRedirectUrl = 'demo/logout.html';
+_idle('url', '/demo/logout.html');
+
 // set escaped urls that no need to detect idle, e.g. logout page
-_idleEscapeUrl = ['demo/logout.html'];
+_idle('escape', ['/demo/logout.html']);
+
 // specifying a callback to replace the default redirect action
-_idleCallback = function(){console.log('timeout')};
+_idle('callback', function(){console.log('timeout')});
+
 // customize idle time interval, in ms.
-_idleInterval = 2000;
+_idle('interval', 2000);
+
 // enable debug mode
-_idleDebug = true;
+_idle('debug', true);
 ```
 
 ## Build from source

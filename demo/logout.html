@@ -4,13 +4,13 @@
         <h1 style="color: #008000;">Welcome to idle.js</h1>
         <p>I'm logged out.</p>
 
-        <script type="text/javascript">
-            _idleRedirectUrl = '/demo/logout.html';
-            _idleEscapeUrl = ['/demo/logout.html'];
-            //_idleCallback = function(){console.log('timeout')};
-            _idleInterval = 2000;
-            _idleDebug = true;
-        </script>
         <script type="text/javascript" src="/src/idle.js"></script>
+        <script type="text/javascript">
+            _idle('url', '/demo/logout.html');
+            _idle('escape', ['/demo/logout.html']);
+            //_idle('callback', function(){console.log('timeout')});
+            _idle('interval', 2000);
+            _idle('debug', true);
+        </script>
     </body>
 </html>
