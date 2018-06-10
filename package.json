@@ -1,0 +1,23 @@
+{
+  "name": "@linkorb/idle",
+  "version": "0.1.0",
+  "description": "A simple javascript library to detect browser idle and perform actions.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkorb/tweakjs.git"
+  },
+  "keywords": [
+    "idle",
+    "javascript",
+    "linkorb"
+  ],
+  "author": "Hongliang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linkorb/tweakjs/issues"
+  },
+  "homepage": "https://github.com/linkorb/tweakjs#readme",
+  "devDependencies": {
+    "webpack": "^4.7.0"
+  }
+}
