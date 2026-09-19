@@ -40,9 +40,9 @@ _idle('debug', true);
 ## Build from source
 To change the source file and build, simply use `webpack`.
 ```
-# generates dist/tweak.js
+# generates dist/idle.js
 webpack -d
-# generates dist/tweak.min.js
+# generates dist/idle.min.js
 webpack -p
 ```
 
